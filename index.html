@@ -106,36 +106,72 @@
                     </p>
                 </blockquote>
                 <pre> <code>
-                    svg {
-                        height: 30vw;
-                        width: 30vw;
-                      }
-                      svg circle {
-                        fill: transparent;
-                        stroke: black;
-                      }
-                      path {
-                        stroke: black;
-                      }
-                      #part1 {
-                        fill: green;
-                      }
-                      #part2 {
-                        fill: yellow;
-                      }
-                      #part3 {
-                        fill: red;
-                      }
-                      #inner {
-                        fill: yellowgreen;
-                      }
-                      #part1:hover,
-                      #part2:hover,
-                      #part3:hover {
-                        fill: chocolate;
-                      }
-                      
-                      
+                   
+
+<head>
+    <title>SVG Example</title>
+    <style>
+        svg {
+            height: 30vw;
+            width: 30vw;
+        }
+        svg circle {
+            fill: transparent;
+            stroke: black;
+        }
+        path {
+            stroke: black;
+        }
+        #part1 {
+            fill: green;
+        }
+        #part2 {
+            fill: yellow;
+        }
+        #part3 {
+            fill: red;
+        }
+        #inner {
+            fill: yellowgreen;
+        }
+        #part1:hover,
+        #part2:hover,
+        #part3:hover {
+            fill: chocolate;
+        }
+    </style>
+</head>
+<body>
+    <svg viewBox='0 0 100 100'>
+        <defs>
+            <path d='M13.63,71 A42,42 0 0,1 50,8' id='path1' />
+            <path d='M50,8 A42,42 0 0,1 86.37,71' id='path2' />
+            <path d='M13.63,76 A42,42 0 0,0 86.37,76' id='path3' />
+        </defs>
+
+        <path d='M50,0 A50,50 0 0,0 7,75 L50,50z' id='part1' />  <!-- should use trigonometry to calculate points - angle = 30deg -->
+        <path d='M50,0 A50,50 0 0,1 93,75 L50,50z' id='part2' />  <!-- should use trigonometry to calculate points - angle = 300deg -->
+        <path d='M7,75 A50,50 0 0,0 93,75 L50,50z' id='part3' />  <!-- should use points calculated for previous two paths -->
+        <circle cx='50' cy='50' r='40' id='inner' />
+
+        <text font-family="Calibri" font-size="8" x="28">
+            <textPath xlink:href="#path1">
+                Tab 1 Text
+            </textPath>
+        </text>
+        <text font-family="Calibri" font-size="8" x="28">
+            <textPath xlink:href="#path2">
+                Tab 2 Text
+            </textPath>
+        </text>
+        <text font-family="Calibri" font-size="8" x="28">
+            <textPath xlink:href="#path3">
+                Tab 3 Text
+            </textPath>
+        </text>
+    </svg>
+</body>
+          
                 </pre>
         
                 
